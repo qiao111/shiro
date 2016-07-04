@@ -11,6 +11,7 @@
   <url>http://maven.apache.org</url>
   <modules>
   	<module>authentication</module>
+  	<module>authorization</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
