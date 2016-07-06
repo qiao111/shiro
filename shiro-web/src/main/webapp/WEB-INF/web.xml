@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+  <display-name>Archetype Created Web Application</display-name>
+  <!-- shiro web 监听器：真正逻辑实现在EnvironmentLoader  -->
+  <listener>
+  	<listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+  </listener>
+  <!-- 上下文参数: EnvironmentLoader,默认配置文件位置：/WEB-INF/shiro.ini-->
+  <context-param>
+  	<param-name>shiroEnvironmentClass</param-name>
+  	<param-value>org.apache.shiro.web.env.IniWebEnvironment</param-value>
+  </context-param>
+  <!-- 上下文参数：配置文件的位置 -->
+  <context-param>
+  	<param-name>shiroConfigLocations</param-name>
+  	<!-- 默认的配置 -->
+<!--   	<param-value>classpath:shiro.ini</param-value>
+ -->  	<!-- 基于authcBasic的shiro-basic-authc -->
+  	<!-- <param-value>classpath:shiro-basic-authc.ini</param-value> -->
+  	<!-- form Filter -->
+  	<param-value>classpath:shiro-formfilter-login.ini</param-value>
+  </context-param>
+  <!--过滤器  -->
+  <filter>
+  	<filter-name>shiro</filter-name>
+  	<filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>shiro</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
